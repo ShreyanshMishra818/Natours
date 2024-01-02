@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /* inherit to force box-sizing inheritance.*/
+}
+html {
+  font-size: 62.5%; /*We use perccentage because users can change the size manually.*/
+  /* 1 rem=10px. We change all our measurement in pixel eeasy to change on phn */
+
+  @include respond(tab-land) {
+    font-size: 56.25%;
+  }
+  @include respond(tab-port) {
+    font-size: 50%;
+  }
+  @include respond(big-desktop) {
+    font-size: 75%;
+  }
+}
+body {
+  /* Property Related to border are inherited soo we are writing it on bosy */
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /* font-size: 16px; */
+  line-height: 1.7;
+  color: $color-grey-dark;
+  padding: 3rem;
+  box-sizing: border-box;
+  @include respond(tab-port) {
+    padding: 0;
+  }
+}
+::selection {
+  background-color: $color-primary;
+  color: $color-white;
+}

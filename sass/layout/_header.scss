@@ -1,0 +1,54 @@
+.header {
+  position: relative;
+  height: 95vh;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba($color-primary-light, 0.801),
+      rgba($color-primary-dark, 0.801)
+    ),
+    url(../img/hero-small.jpg);
+  background-size: cover; /*it always try to fit to width */
+  background-position: top; /*image top always stays at same position*/
+  -webkit-clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 75vh,
+    0 100%
+  ); /* Clip-Path - CLIPPY website can be used */
+  @media only screen and (min-resolution: 192dpi) and (min-width: 37.5em),
+    only screen and (min-width: 125em) {
+    background-image: linear-gradient(
+        to right bottom,
+        rgba($color-primary-light, 0.801),
+        rgba($color-primary-dark, 0.801)
+      ),
+      url(../img/hero.jpg);
+  }
+
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  @include respond(phone) {
+    -webkit-clip-path: polygon(
+      0 0,
+      100% 0,
+      100% 85vh,
+      0 100%
+    ); /* Clip-Path - CLIPPY website can be used */
+    clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+  }
+  &__logo-box {
+    position: absolute;
+    top: 4rem;
+    left: 4rem;
+  }
+  &__logo {
+    height: 3.5rem;
+  }
+  &__text-box {
+    /* To center a div */
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center; /*To align button*/
+  }
+}
